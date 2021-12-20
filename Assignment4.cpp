@@ -25,7 +25,7 @@ int main(int argc, char* argv[]) {
 	start = MPI_Wtime(); //save start time of the programm
 	if (rank == 0) //code section for the process number 0(often the main process)
 	{
-		for (i = 1; i < n; i++) { // for loop for iteration through received messages
+		for (i = 1; i < n; i++) { //for loop for iteration through received messages
 			long long mul = 1; //variable for calculating multiplication
 			MPI_Recv(&message[0], 11, MPI_INT, MPI_ANY_SOURCE,
 			         MPI_ANY_TAG, MPI_COMM_WORLD, &status); //receive message with 11 int values from any free process

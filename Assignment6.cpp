@@ -12,11 +12,13 @@ int main(int argc, char **argv)
 	ibuf = rank; //first buffer is the int number of process
 	if (rank == 1) {
 		MPI_Send(&ibuf, 1, MPI_INT, 0, 1, MPI_COMM_WORLD); //from first process send it's int number with tag 1
-		}
+	}
+
 	if (rank == 2) {
 		rbuf = 1.0 * rank; //make buffer float
 		MPI_Send(&rbuf, 1, MPI_FLOAT, 0, 2, MPI_COMM_WORLD); //from second process send it's float number with tag 2
-		}
+	}
+	
 	if (rank == 0) { //main process code section
 		for (int i = 1; i < 3; i++) { //added loop to receive both messages
 			MPI_Probe(MPI_ANY_SOURCE, i, MPI_COMM_WORLD, &status); //try to receive message(status structure updates after this action)
@@ -30,5 +32,5 @@ int main(int argc, char **argv)
 			}
 		}
 	}
-	MPI_Finalize();
+	MPI_Finalize(); //shut down mpi services
 }
