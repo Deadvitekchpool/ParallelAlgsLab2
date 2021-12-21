@@ -2,7 +2,7 @@
 #include "mpi.h"
 int main(int argc, char **argv)
 {
-	int rank, size, prev, next;
+	int rank, size;
 	int buf[2]; //buffer for incoming messages
 	MPI_Init(&argc, &argv); //initialize mpi with input arguments
 	MPI_Request reqs[4];
