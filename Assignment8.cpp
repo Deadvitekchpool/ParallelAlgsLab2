@@ -63,7 +63,7 @@ int main(int argc, char** argv) {
             }
         }
         finish = MPI_Wtime(); //stop the timer
-        printf("Bandwidth of message with length %d is: %f Mb/s\n", i, 2 * 10 * L / (finish - start)); //calculate and print current Bandwidth
+        printf("Bandwidth of message with length %d is: %f Mb/s\n", i, 2 * 10 * L / (finish - start) / 1024 / 1024); //calculate and print current Bandwidth
     }
     
     MPI_Finalize(); //shut down mpi services
