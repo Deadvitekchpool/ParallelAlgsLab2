@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	MPI_Reduce(&a, &b, n, MPI_INT, op, 0, MPI_COMM_WORLD); //to apply this operation, reduce function is used
 	if (rank == 0) { //print result
 		// for (int i = 0; i < n; i++) {
-		printf("b[n - 1] = %d\n", b[n - 1]);
+		printf("b[0] = %d\n", b[0]);
 		// }
 	}
 	MPI_Op_free(&op); //free memory of user's operation
